@@ -19,12 +19,17 @@
    		<br><br>
    		
      <table align="center" border="1">
+     <thead>
      <tr><th>No.</th><th>氏名</th><th>受講状態</th><th>項目</th><th>内容</th><th>ステータス</th></tr>
-     <tr><td>001</td><td>新井　雄介</td><td>入学希望</td><td>講座、コース、教材について</td><td>初めまして。...</td><td>既読</td></tr>
-     <tr><td>002</td><td>佐藤　雅子</td><td>修了生</td><td>その他</td><td>お世話になっておりま...</td><td>既読</td></tr>
-     <tr><td>003</td><td>一宮　圭吾</td><td>入学希望</td><td>料金・お支払いについて</td><td>入学希望です。</td><td>未読</td></tr>
-     <tr><td>004</td><td>加藤　翔</td><td>在校生</td><td>学習の進め方について</td><td>お世話になっておりま...</td><td>未読</td></tr>
-     <tr><td>005</td><td>田中　浩太</td><td>入学希望</td><td>その他</td><td>入学希望です。</td><td>未読</td></tr>
+     </thead>
+     <tr>
+        <td value="1">1</td>
+        <td value="田中　太郎">田中　太郎</td>
+        <td value="在校生">在校生</td>
+        <td value="料金・お支払いについて">料金・お支払いについて</td>
+        <td value="お世話になっており...">お世話になっており...</td>
+        <td value="未読">未読</td>
+    </tr>
      
      </table>
      <div align ="center">
