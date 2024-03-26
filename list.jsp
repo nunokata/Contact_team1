@@ -3,6 +3,9 @@
 <%@page import="java.util.ArrayList,bean.Contact"%>
 
 
+
+
+
 <html>
 <head>
 <title>お問い合わせ一覧</title>
@@ -41,12 +44,14 @@
 		</thead>
 		<tbody>
 			<%
-				if (contact_list != null) {
-					for (Contact contact : contact_list) {
+			ArrayList<Contact> list =(ArrayList<Contact>)request.getAttribute("contact_list");
+			if(list != null){
+				for(int i=0;i<list.size();i++){
+					Contact contacts = (Contact)list.get(i);
 				%>
 			<tr>
 				<td><a
-					href="<%=request.getContextPath()%><%=contact.getuserNum()%><%=contact.getuserEmail() %></a></td>
+					href="<%=request.getContextPath()%><%=contacts.userNum() %><%=contacts.getEmail() %></a></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -54,11 +59,24 @@
 				<td></td>
 
 			</tr>
+			<%
+					}
+				}else{
+				%>
+				<tr>
+					<td style="text-align:center; width:200px">&nbsp;</td>
+					<td style="text-align:center; width:200px">&nbsp;</td>
+					<td style="text-align:center; width:200px">&nbsp;</td>
+					<td style="text-align:center; width:250px" colspan="2">&nbsp;</td>
+				</tr>
+				<%
+				}
+				%>
 		</tbody>
 
 	</table>
 	<div align="center">
-		<a href="test.html">TOP画面に戻る</a>
+		<a href="test.html">TOP画面に戻る</a></div>
 </body>
 
 
