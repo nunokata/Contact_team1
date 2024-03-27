@@ -2,9 +2,13 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.ArrayList,bean.Contact"%>
 
-
-
-
+<%
+	ArrayList<Contact> contact_list = (ArrayList<Contact>) request
+			.getAttribute("contact_list");
+%>
+<%
+int a = 1;
+%>
 
 <html>
 <head>
@@ -13,9 +17,6 @@
 </head>
 
 <body>
-	<!-- ブラウザ全体 -->
-
-
 	<!--ヘッダー部分  -->
 	<%@ include file="/common/headerA.jsp"%>
 	<br>
@@ -39,39 +40,51 @@
 				<th>受講状態</th>
 				<th>項目</th>
 				<th>内容</th>
+				<th>日時</th>
 				<th>ステータス</th>
 			</tr>
 		</thead>
 		<tbody>
 			<%
-			ArrayList<Contact> list =(ArrayList<Contact>)request.getAttribute("contact_list");
-			if(list != null){
-				for(int i=0;i<list.size();i++){
-					Contact contacts = (Contact)list.get(i);
-				%>
+			if (contact_list != null) {
+				for (Contact contact : contact_list) {
+			%>
 			<tr>
-				<td><a
-					href="<%=request.getContextPath()%><%=contacts.userNum() %><%=contacts.getEmail() %></a></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><a　href="<%=request.getContextPath()%>/detail?userNum=<%=contact.getUserNum()%>"></a></td>
+				<td><%=contact.getName()%></td>
+				<td><%=contact.getHowYou()%></td>
+				<td><%=contact.getPulldown()%></td>
+				<td><%=contact.getFreeText()%></td>
+				<td><%=contact.getContactDate()%></td>
+				<td>
+				    <% if (contact.getStatus() == 0) { %>
+				        未読
+				    <% } else { %>
+				        既読
+					<% } %>
+				</td>
 
 			</tr>
-			<%
-					}
-				}else{
-				%>
+		    <%  
+		   	     }
+			} else { 
+			%>
 				<tr>
+					<td style="text-align:center; width:200px">&nbsp;aa</td>
 					<td style="text-align:center; width:200px">&nbsp;</td>
 					<td style="text-align:center; width:200px">&nbsp;</td>
 					<td style="text-align:center; width:200px">&nbsp;</td>
-					<td style="text-align:center; width:250px" colspan="2">&nbsp;</td>
+					<td style="text-align:center; width:200px">&nbsp;</td>
+					<td style="text-align:center; width:250px">&nbsp;</td>
+					<td>
+				    <% if (a == 0) { %>
+				        未読
+				    <% } else { %>
+				        既読
+					<% } %>
+				    </td>
 				</tr>
-				<%
-				}
-				%>
+		    <% } %>
 		</tbody>
 
 	</table>
