@@ -90,7 +90,7 @@ public class ContactDAO {
 			con = getConnection();
 			smt = con.createStatement();
 			String sql = "INSERT INTO userinfo(userNum,userEmail,userName,gender,address,contactItem,howYou,freeText,contactDate,status)"
-					+ "VALUES(NULL,'" + contact.getEmail() + "','" + contact.getName() + "','" + contact.getGender() +  "','"  + contact.getAddress() + "','" + contact.getPulldown() + "','" + contact.getHowYou() + "','" + contact.getFreeText() + "''" + ")";
+					+ "VALUES(NULL,'" + contact.getEmail() + "','" + contact.getName() + "','" + contact.getGender() +  "','"  + contact.getAddress() + "','" + contact.getPulldown() + "','" + contact.getHowYou() + "','" + contact.getFreeText() + "',now())";
 			smt.executeUpdate(sql);
 		} catch (Exception e) {
 			throw new IllegalStateException(e);
