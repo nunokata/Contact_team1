@@ -1,14 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <link rel="stylesheet" href="./../css/style.css">
   <!-- Header Start -->
-    <header class="site-header">
-        <a href="#" class="brand"><h1>
-        <link href="style.css">
-        
-        </h1></a>
-          <button class="nav__toggle" aria-expanded="false" type="button">
-            menu
-          </button>
+    <header class="header_user">
           <nav>
 	          <ul>
 	            <li><img src="../imgmogi/KES.jpg" width="100" height="100" alt="ロゴ">
