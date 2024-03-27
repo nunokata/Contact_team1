@@ -10,13 +10,14 @@
 int a = 1;
 %>
 
+
 <html>
 <head>
 <title>お問い合わせ一覧</title>
 
 </head>
 
-<body>
+<body bgcolor="#f0e68c" text="#000000">
 	<!--ヘッダー部分  -->
 	<%@ include file="/common/headerA.jsp"%>
 	<br>
@@ -50,10 +51,29 @@ int a = 1;
 				for (Contact contact : contact_list) {
 			%>
 			<tr>
-				<td><a　href="<%=request.getContextPath()%>/detail?userNum=<%=contact.getUserNum()%>"></a></td>
+				<td><a href="<%=request.getContextPath()%>/detail?userNum=<%=contact.getUserNum()%>"><%=contact.getUserNum()%></a></td>
 				<td><%=contact.getName()%></td>
-				<td><%=contact.getHowYou()%></td>
-				<td><%=contact.getPulldown()%></td>
+				<td><% if (contact.getHowYou().equals("b")){%>
+					入学希望者
+					<% }else if (contact.getHowYou().equals("c")){ %>
+					受講生
+					<%} else{ %>
+					卒業生
+					<%} %></td>
+				<td><% if (contact.getPulldown().equals("p")){%>
+					① 料金・お支払いについて
+					<% }else if (contact.getPulldown().equals("q")){ %>
+					② 講座、コース、教材について
+					<% }else if (contact.getPulldown().equals("r")){ %>
+					③ 学習の進め方について
+					<% }else if (contact.getPulldown().equals("s")){ %>
+					④ 受講期限について
+					<% }else if (contact.getPulldown().equals("t")){ %>
+					⑤ 受講終了後のサポートについて
+					<%} else{ %>
+					⑥その他
+					<%} %>
+					</td>
 				<td><%=contact.getFreeText()%></td>
 				<td><%=contact.getContactDate()%></td>
 				<td>
@@ -88,8 +108,9 @@ int a = 1;
 		</tbody>
 
 	</table>
+	<br><br>
 	<div align="center">
-		<a href="test.html">TOP画面に戻る</a></div>
+		[<a href="<%=request.getContextPath()%>/view/title.jsp">タイトルへ戻る</a>]
 </body>
 
 
