@@ -1,19 +1,21 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+<link rel="stylesheet" href="./../css/style.css">
   <!-- Header Start -->
     <header class="site-header">
-      <div class="wrapper site-header__wrapper">
-        <a href="#" class="brand"><h1>神田英会話スクール</h1></a>
-        <nav class="nav">
+        <a href="#" class="brand"><h1>
+        <link href="style.css">
+        
+        </h1></a>
           <button class="nav__toggle" aria-expanded="false" type="button">
             menu
           </button>
-          <ul class="nav__wrapper">
-            <li class="nav__item"><a href="#">Home</a></li>
-            <li class="nav__item"><a href="#">About</a></li>
-            <li class="nav__item"><a href="#">Services</a></li>
-            <li class="nav__item"><a href="#">Hire us</a></li>
-            <li class="nav__item"><a href="#">Contact</a></li>
-          </ul>
+          <nav>
+	          <ul>
+	            <li><img src="../imgmogi/KES.jpg" width="100" height="100" alt="ロゴ">
+	            <a href="<%=request.getContextPath()%>/view/title.jsp">ホーム</a>
+	            <a href="<%=request.getContextPath()%>/view/insert.jsp">お問い合わせ</a>
+	            <a href="<%=request.getContextPath()%>/view/personal.jsp">個人情報取扱いについて</a>
+	          </ul>
         </nav>
       </div>
     </header>
